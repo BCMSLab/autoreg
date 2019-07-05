@@ -4,9 +4,9 @@ library(SummarizedExperiment)
 library(xtable)
 
 
-transformed_counts <- read_rds('data/transformed_counts.rds')
-go_annotation <- read_rds('data/go_annotation.rds')
-tf_annotation <- read_rds('data/tf_annotation.rds')
+transformed_counts <- read_rds('autoreg/data/transformed_counts.rds')
+go_annotation <- read_rds('autoreg/data/go_annotation.rds')
+tf_annotation <- read_rds('autoreg/data/tf_annotation.rds')
 tf <- c('Ctcf', 'Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
 
 list('All Genes' = rownames(transformed_counts),

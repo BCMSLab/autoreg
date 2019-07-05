@@ -62,7 +62,11 @@ analysis: dir_data \
 	$(DATA)/hm_track_signal.rds \
 	$(DATA)/polr2a_track_signal.rds \
 	$(DATA)/data_tracks.rds \
+	$(DATA)/data_tracks_tidy.rds \
+	$(DATA)/data_tracks_tissue.rds \
+	$(DATA)/data_tracks_tissue_tidy.rds \
 	$(DATA)/coverage_tracks.rds \
+	$(DATA)/coverage_tracks_diff.rds \
 	$(DATA)/peak_overlaps.rds
 
 figures: ## Generate the figures
@@ -177,13 +181,28 @@ $(DATA)/data_tracks.rds: $(ANA_SRC)/data_tracks.R \
 	$(DATA)/peak_counts.rds \
 	$(DATA)/factor_track_signal.rds
 	$(RDAT)
+$(DATA)/data_tracks_tidy.rds: $(ANA_SRC)/data_tracks_tidy.R \
+	$(DATA)/peak_counts.rds \
+	$(DATA)/factor_track_signal.rds \
+	$(DATA)/go_annotation.rds
+	$(RDAT)
 $(DATA)/coverage_tracks.rds: $(ANA_SRC)/coverage_tracks.R \
 	$(DATA)/peak_counts.rds \
 	$(DATA)/factor_track_signal.rds \
 	$(DATA)/hm_track_signal.rds \
 	$(DATA)/go_annotation.rds
 	$(RDAT)
+$(DATA)/coverage_tracks_diff.rds: $(ANA_SRC)/coverage_tracks_diff.R \
+	$(DATA)/peak_counts.rds \
+	$(DATA)/factor_track_signal.rds \
+	$(DATA)/hm_track_signal.rds \
+	$(DATA)/go_annotation.rds \
+	$(DATA)/deg_res.rds
+	$(RDAT)
 $(DATA)/data_tracks_tissue.rds: $(ANA_SRC)/data_tracks_tissue.R \
+	$(DATA)/go_annotation.rds
+	$(RDAT)
+$(DATA)/data_tracks_tissue_tidy.rds: $(ANA_SRC)/data_tracks_tissue_tidy.R \
 	$(DATA)/go_annotation.rds
 	$(RDAT)
 $(DATA)/peak_overlaps.rds: $(ANA_SRC)/peak_overlaps.R \
@@ -191,7 +210,8 @@ $(DATA)/peak_overlaps.rds: $(ANA_SRC)/peak_overlaps.R \
 	$(RDAT)
 
 # Figures
-$(FIG_DIR)/markers.png: $(FIG_SRC)/markers.R $(DATA)/gene_counts.rds
+$(FIG_DIR)/markers.png: $(FIG_SRC)/markers.R \
+	$(DATA)/gene_counts.rds
 	$(RFIG)
 $(FIG_DIR)/mds_gene_group.png: $(FIG_SRC)/mds_gene_group.R \
 	$(DATA)/go_annotation.rds \
