@@ -58,6 +58,7 @@ analysis: dir_data \
 	$(DATA)/factor_targets.rds \
 	$(DATA)/deg_res.rds \
 	$(DATA)/dep_res.rds \
+	$(DATA)/occupancy_res.rds \
 	$(DATA)/factor_track_signal.rds \
 	$(DATA)/hm_track_signal.rds \
 	$(DATA)/polr2a_track_signal.rds \
@@ -164,6 +165,9 @@ $(DATA)/deg_res.rds: $(ANA_SRC)/deg_res.R \
 $(DATA)/dep_res.rds: $(ANA_SRC)/dep_res.R \
 	$(DATA)/binding_data.rds \
 	$(DATA)/histone_modification.rds
+	$(RDAT)
+$(DATA)/occupancy_res.rds: $(ANA_SRC)/occupancy_res.R \
+	$(DATA)/factor_occupancy.rds
 	$(RDAT)
 $(DATA)/factor_track_signal.rds: $(ANA_SRC)/factor_track_signal.R \
 	$(DATA)/peak_counts.rds \
