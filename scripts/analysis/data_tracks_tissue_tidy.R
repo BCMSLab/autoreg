@@ -4,7 +4,7 @@ library(org.Mm.eg.db)
 library(rtracklayer)
 
 go_annotation <- read_rds('data/go_annotation.rds')
-tf <- c('Ctcf', 'Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
+tf <- c('Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
 goi <- select(org.Mm.eg.db,
               c(unique(go_annotation$SYMBOL), tf, 'Cidec', 'Klf5'),
               'ENTREZID', 'SYMBOL')

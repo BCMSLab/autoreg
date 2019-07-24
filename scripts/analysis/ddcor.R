@@ -6,7 +6,7 @@ library(DGCA)
 transformed_counts <- read_rds('data/transformed_counts.rds')
 
 go_annotation <- read_rds('data/go_annotation.rds')
-tf <- c('Ctcf', 'Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
+tf <- c('Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
 
 goi <- c(unique(go_annotation$SYMBOL), tf)
 

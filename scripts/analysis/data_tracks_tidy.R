@@ -13,7 +13,7 @@ pd <- tibble(factor = peak_counts$factor,
              group = peak_counts$group,
              time = peak_counts$time)
 
-tf <- c('Ctcf', 'Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
+tf <- c('Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
 
 
 goi <- AnnotationDbi::select(org.Mm.eg.db,

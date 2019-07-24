@@ -12,7 +12,7 @@ pd <- tibble(factor = peak_counts$factor,
              time = peak_counts$time)
 
 go_annotation <- read_rds('data/go_annotation.rds')
-tf <- c('Ctcf', 'Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
+tf <- c('Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
 
 factor_track_signal <- read_rds('data/factor_track_signal.rds')
 hm_track_signal <- read_rds('data/hm_track_signal.rds')

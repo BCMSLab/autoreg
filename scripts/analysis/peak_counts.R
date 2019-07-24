@@ -1,10 +1,13 @@
 # loading requried libraries
 library(tidyverse)
 library(SummarizedExperiment)
+library(ExperimentHub)
 
 # load data from bioc
 # loading data
 load('data/peak_counts.rda')
+#eh <- ExperimentHub()
+#peak_counts <- query(eh, "curatedAdipoChIP")[[1]]
 
 peak_counts$group <- cut(peak_counts$time,
                          breaks = c(-50, 0, 48, 240),

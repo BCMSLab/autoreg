@@ -6,7 +6,7 @@ library(SummarizedExperiment)
 peak_counts <- read_rds('data/peak_counts.rds')
 
 # subset the object
-tfs <- c('CTCF', 'CEBPB', 'PPARG', 'POLR2A', 'RXRG', 'EP300', 'MED1')
+tfs <- c('CEBPB', 'PPARG', 'POLR2A', 'RXRG', 'EP300', 'MED1')
 
 se <- map(tfs, function(x) {
   ind <- is.na(peak_counts$factor)

@@ -11,7 +11,7 @@ library(org.Mm.eg.db)
 # })
 
 peak_counts <- read_rds('data/peak_counts.rds')
-tf <- c('Ctcf', 'Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
+tf <- c('Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
 
 go_annotation <- read_rds('data/go_annotation.rds')
 goi <- select(org.Mm.eg.db,

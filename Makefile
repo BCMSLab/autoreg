@@ -67,8 +67,7 @@ analysis: dir_data \
 	$(DATA)/data_tracks_tissue.rds \
 	$(DATA)/data_tracks_tissue_tidy.rds \
 	$(DATA)/coverage_tracks.rds \
-	$(DATA)/coverage_tracks_diff.rds \
-	$(DATA)/peak_overlaps.rds
+	$(DATA)/coverage_tracks_diff.rds
 
 figures: ## Generate the figures
 figures: dir_manuscript \

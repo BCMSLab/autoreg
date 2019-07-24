@@ -3,7 +3,7 @@ library(SummarizedExperiment)
 
 peak_counts <- read_rds('data/peak_counts.rds')
 
-tf <- c('Ctcf', 'Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
+tf <- c('Cebpb', 'Pparg', 'Rxrg', 'Ep300', 'Med1')
 
 tf_gsm <- data.frame(peak = colnames(peak_counts),
                      factor = peak_counts$factor,

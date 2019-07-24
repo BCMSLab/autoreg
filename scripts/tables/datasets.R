@@ -5,7 +5,7 @@ library(xtable)
 peak_counts <- read_rds('data/peak_counts.rds')
 gene_counts <- read_rds('data/gene_counts.rds')
 
-tfs <- c('CTCF', 'CEBPB', 'PPARG', 'POLR2A', 'RXRG', 'EP300', 'MED1')
+tfs <- c('CEBPB', 'PPARG', 'POLR2A', 'RXRG', 'EP300', 'MED1')
 hms <- c('H3K27ac', 'H3K4me1', 'H3K4me2', 'H3K4me3', 'H3K9me3')
 
 pd <- colData(peak_counts)
