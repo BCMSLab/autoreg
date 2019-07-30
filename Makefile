@@ -67,7 +67,11 @@ analysis: dir_data \
 	$(DATA)/data_tracks_tissue.rds \
 	$(DATA)/data_tracks_tissue_tidy.rds \
 	$(DATA)/coverage_tracks.rds \
-	$(DATA)/coverage_tracks_diff.rds
+	$(DATA)/coverage_tracks_diff.rds \
+	$(DATA)/counts_cebpb_kd.rds \
+	$(DATA)/arrays_pparg_kd.rds \
+	$(DATA)/cebpb_kd_res.rds \
+	$(DATA)/pparg_kd_res.rds
 
 figures: ## Generate the figures
 figures: dir_manuscript \
@@ -211,7 +215,15 @@ $(DATA)/data_tracks_tissue_tidy.rds: $(ANA_SRC)/data_tracks_tissue_tidy.R \
 $(DATA)/peak_overlaps.rds: $(ANA_SRC)/peak_overlaps.R \
 	$(DATA)/peak_counts.rds
 	$(RDAT)
-
+$(DATA)/counts_cebpb_kd.rds: $(ANA_SRC)/counts_cebpb_kd.R
+	$(RDAT)
+$(DATA)/arrays_pparg_kd.rds: $(ANA_SRC)/arrays_pparg_kd.R
+	$(RDAT)
+$(DATA)/%_kd_res.rds: $(ANA_SRC)/kd_res.R \
+	$(DATA)/counts_cebpb_kd.rds \
+	$(DATA)/arrays_pparg_kd.rds
+	$(RDAT)
+	
 # Figures
 $(FIG_DIR)/markers.png: $(FIG_SRC)/markers.R \
 	$(DATA)/gene_counts.rds
