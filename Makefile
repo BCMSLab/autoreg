@@ -71,7 +71,9 @@ analysis: dir_data \
 	$(DATA)/counts_cebpb_kd.rds \
 	$(DATA)/arrays_pparg_kd.rds \
 	$(DATA)/cebpb_kd_res.rds \
-	$(DATA)/pparg_kd_res.rds
+	$(DATA)/pparg_kd_res.rds \
+	$(DATA)/deg_go_res.rds \
+	$(DATA)/kd_go_res.rds
 
 figures: ## Generate the figures
 figures: dir_manuscript \
@@ -223,7 +225,14 @@ $(DATA)/%_kd_res.rds: $(ANA_SRC)/kd_res.R \
 	$(DATA)/counts_cebpb_kd.rds \
 	$(DATA)/arrays_pparg_kd.rds
 	$(RDAT)
-	
+$(DATA)/deg_go_res.rds: $(ANA_SRC)/deg_go_res.R \
+	$(DATA)/deg_res.rds
+	$(RDAT)
+$(DATA)/kd_go_res.rds: $(ANA_SRC)/kd_go_res.R \
+	$(DATA)/cebpb_kd_res.rds \
+	$(DATA)/pparg_kd_res.rds 
+	$(RDAT)
+
 # Figures
 $(FIG_DIR)/markers.png: $(FIG_SRC)/markers.R \
 	$(DATA)/gene_counts.rds
