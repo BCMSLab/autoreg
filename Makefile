@@ -136,7 +136,7 @@ $(DATA)/transformed_counts.rds: $(ANA_SRC)/transformed_counts.R \
 	$(DATA)/gene_counts.rds
 	$(RDAT)
 $(DATA)/peak_counts.rds: $(ANA_SRC)/peak_counts.R \
-	$(DATA)/peak_counts.rda
+	$(DATA)/peak_counts2.rda
 	$(RDAT)
 $(DATA)/binding_data.rds: $(ANA_SRC)/binding_data.R \
 	$(DATA)/peak_counts.rds
