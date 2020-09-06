@@ -12,6 +12,7 @@ TAB_DIR=manuscript/tables
 
 # Define directory structure; for intermediates
 DATA=data
+LOG=log
 LOG_ANA=log/analysis
 LOG_FIG=log/figures
 LOG_TAB=log/tables
@@ -36,6 +37,7 @@ dir_manuscript:
 	test ! -d $(FIG_DIR) && mkdir $(FIG_DIR) || exit 0
 dir_logs: ## Make logs directory tree
 dir_logs:
+	test ! -d $(LOG) && mkdir $(LOG) || exit 0
 	test ! -d $(LOG_ANA) && mkdir $(LOG_ANA) || exit 0
 	test ! -d $(LOG_FIG) && mkdir $(LOG_FIG) || exit 0
 	test ! -d $(LOG_TAB) && mkdir $(LOG_TAB) || exit 0
@@ -68,6 +70,7 @@ analysis: dir_data \
 	$(DATA)/data_tracks_tissue_tidy.rds \
 	$(DATA)/coverage_tracks.rds \
 	$(DATA)/coverage_tracks_diff.rds \
+	$(DATA)/peak_overlaps.rds \
 	$(DATA)/counts_cebpb_kd.rds \
 	$(DATA)/arrays_pparg_kd.rds \
 	$(DATA)/cebpb_kd_res.rds \
@@ -135,8 +138,7 @@ $(DATA)/gene_counts.rds: $(ANA_SRC)/gene_counts.R
 $(DATA)/transformed_counts.rds: $(ANA_SRC)/transformed_counts.R \
 	$(DATA)/gene_counts.rds
 	$(RDAT)
-$(DATA)/peak_counts.rds: $(ANA_SRC)/peak_counts.R \
-	$(DATA)/peak_counts2.rda
+$(DATA)/peak_counts.rds: $(ANA_SRC)/peak_counts.R
 	$(RDAT)
 $(DATA)/binding_data.rds: $(ANA_SRC)/binding_data.R \
 	$(DATA)/peak_counts.rds
